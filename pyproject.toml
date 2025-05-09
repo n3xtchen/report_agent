@@ -34,3 +34,4 @@ Repository = "https://github.com/n3xtchen/report_agent"
 "Bug Tracker" = "https://github.com/n3xtchen/report_agent/issues"
 
 [project.scripts]
+report_agent_server="script.pandas_agent:__main__"
