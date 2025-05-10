@@ -16,7 +16,7 @@ authors = [
   {name = "n3xtchen", email = "echenwen@gmail.com"},
 ]
 maintainers = [
-  {name = "Brett Cannon", email = "brett@example.com"}
+  {name = "n3xtchen", email = "echenwen@gmail.com"}
 ]
 description = "Agent For Report"
 readme = "README.md"

@@ -9,9 +9,9 @@
 
 """
 
-from script import pandas_agent
 from streamlit.web import cli
 
+from views import pandas_agent
+
 def run():
-    print(pandas_agent.__file__)
     cli.main_run([pandas_agent.__file__])
