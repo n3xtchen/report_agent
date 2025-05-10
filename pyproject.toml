@@ -6,7 +6,10 @@ build-backend = "setuptools.build_meta"
 name = "report_agent"
 version = "0.0.1"
 dependencies = [
-  "streamlit"
+  "langchain_experimental",
+  "langchain_aws",
+  "streamlit",
+  "tabulate"
 ]
 requires-python = ">=3.9"
 authors = [
@@ -34,4 +37,4 @@ Repository = "https://github.com/n3xtchen/report_agent"
 "Bug Tracker" = "https://github.com/n3xtchen/report_agent/issues"
 
 [project.scripts]
-report_agent_server="script.pandas_agent:__main__"
+report_agent_server="script:run"
