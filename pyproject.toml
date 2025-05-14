@@ -9,7 +9,8 @@ dependencies = [
   "langchain_experimental",
   "langchain_aws",
   "streamlit",
-  "tabulate"
+  "tabulate",
+  "mcp"
 ]
 requires-python = ">=3.9"
 authors = [
@@ -29,7 +30,11 @@ classifiers = [
 ]
 
 [project.optional-dependencies]
-dev = [ ]
+dev = [
+  "pip-tools",
+  "pytest",
+  "pytest_asyncio"
+]
 
 [project.urls]
 Homepage = "https://n3xtchen.github.io/n3xtchen/"
@@ -38,3 +43,10 @@ Repository = "https://github.com/n3xtchen/report_agent"
 
 [project.scripts]
 report_agent_server="script:run"
+
+[tool.pytest.ini_options]
+# addopts = "-s"
+pythonpath = [
+  "src"
+]
+asyncio_default_fixture_loop_scope = "function"
