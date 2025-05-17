@@ -9,19 +9,16 @@
 
 """
 
-import asyncio
-
 import pytest
 
-from report_agent.mcp.client import MCPClient
-
 from mcp import StdioServerParameters
+
+from report_agent.mcp.client import MCPClient
 
 server_params = StdioServerParameters(
         command="python",
         args=['tests/mcp_server/mcp_test.py'],
-        env=None,
-                    )
+        env=None)
 
 @pytest.mark.asyncio
 async def test_mcp_tools():

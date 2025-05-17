@@ -7,6 +7,7 @@
 
 """
 
+参考：https://github.com/Nikunj2003/LLaMa-MCP-Streamlit/blob/main/llama_mcp_streamlit/utils/mcp_client.py
 """
 
 import asyncio

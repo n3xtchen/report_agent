@@ -33,7 +33,7 @@ classifiers = [
 dev = [
   "pip-tools",
   "pytest",
-  "pytest_asyncio"
+  "pytest_asyncio",
 ]
 
 [project.urls]
@@ -45,7 +45,7 @@ Repository = "https://github.com/n3xtchen/report_agent"
 report_agent_server="script:run"
 
 [tool.pytest.ini_options]
-# addopts = "-s"
+addopts = "-s"
 pythonpath = [
   "src"
 ]
