@@ -32,6 +32,7 @@ anyio==4.9.0
     #   -c requirements.txt
     #   httpx
     #   mcp
+    #   openai
     #   sse-starlette
     #   starlette
 attrs==25.3.0
@@ -79,6 +80,8 @@ dataclasses-json==0.6.7
     # via
     #   -c requirements.txt
     #   langchain-community
+distro==1.9.0
+    # via openai
 frozenlist==1.6.0
     # via
     #   -c requirements.txt
@@ -106,6 +109,7 @@ httpx==0.28.1
     #   -c requirements.txt
     #   langsmith
     #   mcp
+    #   openai
 httpx-sse==0.4.0
     # via
     #   -c requirements.txt
@@ -125,6 +129,8 @@ jinja2==3.1.6
     #   -c requirements.txt
     #   altair
     #   pydeck
+jiter==0.9.0
+    # via openai
 jmespath==1.0.1
     # via
     #   -c requirements.txt
@@ -165,11 +171,14 @@ langchain-core==0.3.59
     #   langchain-aws
     #   langchain-community
     #   langchain-experimental
+    #   langchain-openai
     #   langchain-text-splitters
 langchain-experimental==0.3.4
     # via
     #   -c requirements.txt
     #   report_agent (pyproject.toml)
+langchain-openai==0.3.17
+    # via report_agent (pyproject.toml)
 langchain-text-splitters==0.3.8
     # via
     #   -c requirements.txt
@@ -211,6 +220,8 @@ numpy==2.2.5
     #   pandas
     #   pydeck
     #   streamlit
+openai==1.79.0
+    # via langchain-openai
 orjson==3.10.18
     # via
     #   -c requirements.txt
@@ -258,6 +269,7 @@ pydantic==2.11.4
     #   langchain-core
     #   langsmith
     #   mcp
+    #   openai
     #   pydantic-settings
 pydantic-core==2.33.2
     # via
@@ -308,6 +320,8 @@ referencing==0.36.2
     #   -c requirements.txt
     #   jsonschema
     #   jsonschema-specifications
+regex==2024.11.6
+    # via tiktoken
 requests==2.32.3
     # via
     #   -c requirements.txt
@@ -316,6 +330,7 @@ requests==2.32.3
     #   langsmith
     #   requests-toolbelt
     #   streamlit
+    #   tiktoken
 requests-toolbelt==1.0.0
     # via
     #   -c requirements.txt
@@ -341,6 +356,7 @@ sniffio==1.3.1
     # via
     #   -c requirements.txt
     #   anyio
+    #   openai
 sqlalchemy==2.0.40
     # via
     #   -c requirements.txt
@@ -366,6 +382,8 @@ tenacity==9.1.2
     #   langchain-community
     #   langchain-core
     #   streamlit
+tiktoken==0.9.0
+    # via langchain-openai
 toml==0.10.2
     # via
     #   -c requirements.txt
@@ -374,12 +392,15 @@ tornado==6.4.2
     # via
     #   -c requirements.txt
     #   streamlit
+tqdm==4.67.1
+    # via openai
 typing-extensions==4.13.2
     # via
     #   -c requirements.txt
     #   altair
     #   anyio
     #   langchain-core
+    #   openai
     #   pydantic
     #   pydantic-core
     #   referencing
@@ -421,4 +442,3 @@ zstandard==0.23.0
 # The following packages are considered to be unsafe in a requirements file:
 # pip
 # setuptools
--e .

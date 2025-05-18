@@ -8,6 +8,7 @@ version = "0.0.1"
 dependencies = [
   "langchain_experimental",
   "langchain_aws",
+  "langchain_openai",
   "streamlit",
   "tabulate",
   "mcp"
