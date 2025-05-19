@@ -9,9 +9,11 @@
 测试模型
 """
 
+import os
+
 import pytest
 
-from report_agent.chat_model import LLM
+from report_agent.chat_model import LLMError, LLM
 
 @pytest.mark.asyncio
 async def test_bedrock_converse():
@@ -28,4 +30,15 @@ async def test_openai():
     model = LLM.openai("gpt-4.1")
     response = model.invoke("Hello, world!")
     assert response is not None
+
+@pytest.mark.asyncio
+async def test_model_provider():
+
+    os.environ["LLM_PROVIDER"] = 'XX'
+    try:
+        LLM.model()
+    except Exception as exc:
+        e = exc
+
+    assert e.__class__ == LLMError
 
