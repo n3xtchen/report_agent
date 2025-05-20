@@ -208,6 +208,8 @@ mypy-extensions==1.1.0
     # via
     #   -c requirements.txt
     #   typing-inspect
+mysql-connector-python==9.3.0
+    # via report_agent (pyproject.toml)
 narwhals==1.39.0
     # via
     #   -c requirements.txt

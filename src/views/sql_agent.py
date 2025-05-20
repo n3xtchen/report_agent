@@ -1,36 +1,47 @@
+#! /usr/bin/env python3
+# vim:fenc=utf-8
+#
+# Copyright © 2025 n3xtchen <echenwen@gmail.com>
+#
+# Distributed under terms of the GPL-2.0 license.
+
+"""
+"""
 
 
 
 from langchain.sql_database import SQLDatabase
-from langchain.llms import OpenAI
-from langchain.agents import AgentType, initialize_agent, load_tools
+from langchain.agents import AgentType
 from langchain.callbacks import StreamlitCallbackHandler
 from langchain.agents import create_sql_agent
 from langchain.agents.agent_toolkits import SQLDatabaseToolkit
 import streamlit as st
 
+from report_agent.chat_model import LLM
+
 
 st.title("Talk to your data")
-api_key = st.text_input("api_key")
 db_string = st.text_input("db_string")
 
-if api_key:
+# 如果使用 bedrock, 不能用 bedrock_converse 
+# todo: 在这里加一个验证不是 bedrock_converse
+llm = LLM.model()
+
+if db_string:
     db = SQLDatabase.from_uri(db_string)
-    toolkit = SQLDatabaseToolkit(db=db, llm=OpenAI(temperature=0, openai_api_key=api_key))
+    toolkit = SQLDatabaseToolkit(db=db, llm=llm)
     agent_executor = create_sql_agent(
-        llm=OpenAI(temperature=0, streaming=True, openai_api_key=api_key),
+        llm=llm,
         toolkit=toolkit,
         verbose=True,
         agent_type=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
     )
-else:
-    st.write("Please input openai_api_key")
+    
+    if prompt := st.chat_input():
+        st.chat_message("user").write(prompt)
+        with st.chat_message("assistant"):
+            st_callback = StreamlitCallbackHandler(st.container())
+            response = agent_executor.run(prompt, callbacks=[st_callback])
+    
+            st.write(response)
 
-
-if prompt := st.chat_input():
-    st.chat_message("user").write(prompt)
-    with st.chat_message("assistant"):
-        st_callback = StreamlitCallbackHandler(st.container())
-        response = agent_executor.run(prompt, callbacks=[st_callback])
-
-        st.write(response)

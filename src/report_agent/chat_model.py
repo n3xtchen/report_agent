@@ -30,10 +30,6 @@ class LLM:
 
     _llm = None
 
-    def __init__(self, llm):
-
-        self._llm = llm
-
     @classmethod
     def model(cls):
         """
@@ -74,7 +70,7 @@ class LLM:
 
         return init_chat_model(
             model, 
-            model_provider="bedrock_converse",
+            model_provider="bedrock",
             credentials_profile_name=profile_name
             )
 
