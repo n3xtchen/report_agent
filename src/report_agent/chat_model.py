@@ -51,7 +51,7 @@ class LLM:
             model_name: str = model_name or DEFAUTL_CLAUDE_MODEL
             cls._llm = cls.claude(model_name)
         elif model_provider == 'openai':
-            model_name = model_name or DEFAUTL_OPENAI_MODEL
+            model_name = model_name or DEFAULT_OPENAI_MODEL
             # if os.getenv('OPENAI_API_KEY', None) is None:
             #     return 'error'
             cls._llm = cls.openai(model_name)
